@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset='UTF-8'>
+        
+        <!-- Menjadikan kompatibel dengan perangkat seluler -->
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        
+        <title>Peringkasan Lintas Bahasa</title>
+
+        <style>
+            body {
+                text-align: center;
+                background: black;
+            }
+            
+            a, h1, h4, p {
+                color: white;
+            }
+
+            a.button {
+                -webkit-appearance: button;
+                -moz-appearance: button;
+                appearance: button;
+
+                text-decoration: none;
+                color: initial;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class='login'>
+            <h1>Peringkasan Lintas Bahasa</h1>
+
+            <!-- Action adalah tempat data dikirim. Jika tidak ada action, maka dianggap sebagai halaman saat ini -->
+            <form method='post' action='/summarize'>
+                <textarea name='document' placeholder='Teks yang akan diringkas' required='required' rows='25' cols='100'>{{document}}</textarea>
+                <p>
+                    <input type='radio' id='cls-type-1' name='cls-type' value='0' checked='checked' />
+                    <label for='cls-type-1'>English-Indonesia</label><br>
+                    
+                    <input type='radio' id='cls-type-2' name='cls-type' value='1' />
+                    <label for="cls-type-2">Indonesia-English</label><br>
+                </p>
+
+                <div>
+                    <button type='submit'>Submit</button>
+                    <input type='button' onclick='location.href="/";' value='Reset' />
+                    <a href='https://github.com/achmad-f-abka/cls-web-app' target='_blank' rel='noopener noreferrer'>Sample</a>
+                </div>
+            </form>
+
+            <h4>{{summary}}</h4>
+        </div>
+    </body>
+</html>
